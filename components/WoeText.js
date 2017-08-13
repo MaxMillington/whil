@@ -16,7 +16,7 @@ const WoeText = (props) => {
   })
 
   return (
-    <View>
+    <View style={styles.textContainer}>
       {text}
     </View>
   )
@@ -29,8 +29,13 @@ WoeText.propTypes = {
 export default WoeText
 
 const styles = StyleSheet.create({
-    text: {
-      fontSize: 19,
-      fontWeight: 'bold',
-    }
+  textContainer : {
+    justifyContent: 'center',
+    paddingHorizontal: 20
+  },
+  text: {
+    marginVertical: 5,
+    fontSize: 19,
+    fontWeight: 'bold',
+  }
 });

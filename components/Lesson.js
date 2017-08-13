@@ -1,14 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, Text, View, Button } from 'react-native';
+import { findKey } from 'lodash'
 import WoeText from './WoeText'
 import WoeButton from './WoeButton'
 
 export default class Lesson extends React.Component {
   constructor(props) {
     super(props)
+    const startRow = findKey(this.props.messages, (object) => { return object.tag.includes('-start') })
     this.state = {
-      current: 'EIC'
+      current: startRow
     }
   }
 
@@ -25,9 +27,7 @@ export default class Lesson extends React.Component {
 
     return (
       <View style={styles.container}>
-        <View>
-          {text}
-        </View>
+        {text}
         {buttons}
       </View>
     );
