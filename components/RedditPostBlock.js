@@ -2,31 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, View, Text } from 'react-native';
 
-const WoeText = (props) => {
-  const woeText = props.text.split('|')
-  const text = woeText.map((text) => {
-    return (
-      <Text
-        key={text}
-        style={styles.text}
-      >
-        {text}
-      </Text>
-    )
-  })
-
+const RedditBlock = (props) => {
   return (
     <View style={styles.textContainer}>
-      {text}
+      <Text
+        style={styles.text}
+      >
+        {props.text}
+      </Text>
     </View>
   )
 }
 
-WoeText.propTypes = {
+RedditBlock.propTypes = {
   text: PropTypes.string.isRequired
 }
 
-export default WoeText
+export default RedditBlock
 
 const styles = StyleSheet.create({
   textContainer : {
