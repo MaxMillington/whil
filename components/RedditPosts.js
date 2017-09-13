@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, ScrollView, Button } from 'react-native';
 import RedditPostBlock from './RedditPostBlock'
 import RedditButton from './RedditButton'
 
@@ -13,21 +13,21 @@ export default class RedditPosts extends React.Component {
     this.props.callPosts()
   }
 
-  route = (value) => {
-    this.setState({ current: value })
-  }
-
   render() {
     console.log(this.props)
 
+    const posts = this.props.posts.map((post) => {
+      const text = `${post.data.author}  | ${post.data.title} | ${post.data.ups} upvotes`
+      return <RedditPostBlock key={text} text={text} />
+    })
+
     const buttons = <RedditButton />
-    const text = <RedditPostBlock text={'blah'} />
 
     return (
-      <View style={styles.container}>
-        {text}
+      <ScrollView contentContainerStyle={styles.container}>
+        {posts}
         {buttons}
-      </View>
+      </ScrollView>
     );
   }
 }
@@ -40,9 +40,8 @@ RedditPosts.propTypes = {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    paddingVertical: 20,
     backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'center',
   }
 });

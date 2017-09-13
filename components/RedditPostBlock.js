@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   },
   text: {
     marginVertical: 5,
-    fontSize: 19,
+    fontSize: 12,
     fontWeight: 'bold',
   }
 });
