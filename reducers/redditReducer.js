@@ -30,6 +30,11 @@ export default (state = initialState, action) => {
         loading: false,
         error: true
       })
+    case 'Post':
+      const item = state.posts.find((post) => { return post.data.id === action.id })
+      return Object.assign({}, state, {
+        post: item
+      })
     default:
       return state
   }

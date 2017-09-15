@@ -28,15 +28,12 @@ export function getPostsError(bool) {
 export const callPosts = () => {
   return (dispatch) => {
     dispatch(getPosts(true));
-    console.log('dispatch')
 
     axios.get('https://www.reddit.com/.json')
       .then(res => {
-        console.log('suc', res)
         dispatch(getPostsSuccess(res.data.data.children))
       })
       .catch(err => {
-        console.log('err', err)
         dispatch(getPostsError(true))
       })
   }

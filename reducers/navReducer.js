@@ -16,7 +16,7 @@ const nav = (state = initialState, action) => {
     //   break;
     case 'Post':
       nextState = AppNavigator.router.getStateForAction(
-        NavigationActions.back(),
+        NavigationActions.navigate({ routeName: 'Post' }),
         state
       );
       break;

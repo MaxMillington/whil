@@ -18,11 +18,10 @@ export class RedditPosts extends React.Component {
   }
 
   render() {
-    console.log(this.props, 'google')
-
-    const posts = this.props.posts.map((post) => {
+    console.log(this.props, 'goog')
+    const posts = this.props.posts.map((post, index) => {
       const text = `${post.data.author}  | ${post.data.title} | ${post.data.ups} upvotes`
-      return <RedditPostBlock key={text} text={text} />
+      return <RedditPostBlock key={text} text={text} navigation={this.props.navigation} id={post.data.id} />
     })
 
     return (
@@ -56,8 +55,7 @@ RedditPosts.propTypes = {
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 20,
-    backgroundColor: '#fff',
+    paddingVertical: 10,
     justifyContent: 'center',
   }
 });

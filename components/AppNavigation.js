@@ -5,22 +5,25 @@ import { connect } from 'react-redux'
 import {
   callPosts
 } from '../actions/index'
-import RedditPosts from './RedditPosts'
-import Post from './Post'
+import RedditPosts from '../components/RedditPosts'
+import Post from '../components/Post'
 
 
 import { addNavigationHelpers, StackNavigator } from 'react-navigation';
 
 export const AppNavigator = StackNavigator({
-  RedditPosts: { screen: RedditPosts }
-  // Post: { screen: Post }
+  RedditPosts: { screen: RedditPosts },
+  Post: { screen: Post }
 });
 
-const AppWithNavigationState = ({ dispatch, nav }) => (
-  <AppNavigator navigation={addNavigationHelpers({ dispatch, state: nav })} />
+const App = ({ dispatch, nav }) => (
+  <AppNavigator navigation={addNavigationHelpers({
+    dispatch,
+    state: nav
+  })} />
 );
 
-AppWithNavigationState.propTypes = {
+App.propTypes = {
   dispatch: PropTypes.func.isRequired,
   nav: PropTypes.object.isRequired,
 }
@@ -38,7 +41,9 @@ const mapDispatchToProps = (dispatch) => {
   }, dispatch))
 }
 
-export default connect(
+const AppWithNavigationState = connect(
   mapStateToProps,
   mapDispatchToProps
-)(AppWithNavigationState)
+)(App)
+
+export default AppWithNavigationState
