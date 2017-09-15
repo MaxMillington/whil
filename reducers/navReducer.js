@@ -6,14 +6,7 @@ const initialState = AppNavigator.router.getStateForAction(AppNavigator.router.g
 
 
 const nav = (state = initialState, action) => {
-  console.log('action.type', action.type)
   switch (action.type) {
-    // case 'RedditPosts':
-    //   nextState = AppNavigator.router.getStateForAction(
-    //     NavigationActions.back(),
-    //     state
-    //   );
-    //   break;
     case 'Post':
       nextState = AppNavigator.router.getStateForAction(
         NavigationActions.navigate({ routeName: 'Post' }),

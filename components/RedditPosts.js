@@ -18,8 +18,7 @@ export class RedditPosts extends React.Component {
   }
 
   render() {
-    console.log(this.props, 'goog')
-    const posts = this.props.posts.map((post, index) => {
+    const posts = this.props.posts.map((post) => {
       const text = `${post.data.author}  | ${post.data.title} | ${post.data.ups} upvotes`
       return <RedditPostBlock key={text} text={text} navigation={this.props.navigation} id={post.data.id} />
     })

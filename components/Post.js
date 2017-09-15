@@ -3,7 +3,6 @@ import { StyleSheet, View, Text, Image } from 'react-native';
 import { connect } from 'react-redux'
 
 const Post = (props) => {
-  console.log('yo ma props', props)
   let imageUrl
   if (props.post.data.preview && props.post.data.preview.images[0]) {
     imageUrl = props.post.data.preview.images[0].source.url
